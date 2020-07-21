@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Image from "./components/ImageComponent";
-//import Inputs from "./components/Inputs";
+import Inputs from "./components/Inputs";
 import "./App.css";
 
 class App extends Component {
@@ -9,7 +9,6 @@ class App extends Component {
     images: [],
     isLoaded: false,
     error: {},
-    text: "",
   };
 
   componentDidMount() {
@@ -50,30 +49,22 @@ class App extends Component {
       });
   };
 
-  search = () => {
-    console.log(this.state.text);
-    this.flickrApiCall("search", this.state.text);
+  search = (text) => {
+    console.log(text);
+    this.flickrApiCall("search", text);
   };
 
   select = (image, event) => {
     this.setState({ SelectedImage: image });
   };
 
-  handleChange(e) {
-    let text = e.target.value;
-    console.log(e.target.value);
-    this.setState({ text: text });
-  }
-
   render() {
-    const { images, text } = this.state;
+    const { images } = this.state;
     return (
       <div>
         <div className="title">
           <h1>Search Images</h1>
-          <input type="text" value={text} onChange={this.handleChange}></input>
-          <button onClick={this.search}>Search</button>
-          <button onClick={this.blur}>Blur</button>
+          <Inputs search={this.search}></Inputs>
         </div>
         <div className="images">
           {images.map((image) => (

@@ -1,20 +1,27 @@
 import React, { Component } from "react";
 
 class Inputs extends Component {
-  constructor() {
-    super();
-    this.entrada = React.createRef();
-  }
-  focus = () => {
-    console.log(this.entrada);
+  state = {
+    text: "",
   };
-  blur = () => {};
+
+  handleChange = (e) => {
+    const text = e.target.value;
+
+    this.setState({ text });
+  };
+
   render() {
     return (
       <div>
-        <input type="text" ref={this.entrada}></input>
-        <button onClick={this.focus}>Focus</button>
-        <button onClick={this.blur}>Blur</button>
+        <input
+          type="text"
+          value={this.state.text}
+          onChange={this.handleChange}
+        ></input>
+        <button onClick={() => this.props.search(this.state.text)}>
+          Search
+        </button>
       </div>
     );
   }
