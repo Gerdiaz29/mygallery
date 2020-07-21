@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Image from "./components/ImageComponent";
-import Inputs from "./components/Inputs";
+//import Inputs from "./components/Inputs";
 import "./App.css";
 
 class App extends Component {
@@ -71,7 +71,6 @@ class App extends Component {
       <div>
         <div className="title">
           <h1>Search Images</h1>
-          <Inputs onChange={this.handleChange}></Inputs>
           <input type="text" value={text} onChange={this.handleChange}></input>
           <button onClick={this.search}>Search</button>
           <button onClick={this.blur}>Blur</button>
