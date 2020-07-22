@@ -22,7 +22,7 @@ class App extends Component {
     url += `&api_key=${process.env.REACT_APP_API_KEY}`;
     url += "&format=json&nojsoncallback=1&per_page=25&safe_search=3";
     if (this.state.text !== undefined && this.state.text !== "") {
-      url += `&text=${this.state.text}`;
+      url += `&tags=${this.state.text}`;
     }
 
     fetch(url)
