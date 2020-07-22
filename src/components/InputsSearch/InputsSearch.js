@@ -12,7 +12,7 @@ class InputsSearch extends Component {
           onKeyDown={this.props.handleEnter}
         ></input>
         <button
-          className="btn btn-outline-success my-2 my-sm-0"
+          className="form-control btn btn-outline-success my-2 my-sm-0"
           onClick={this.props.search}
         >
           Search

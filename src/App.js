@@ -13,16 +13,16 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.flickrApiCall("getRecent");
+    this.flickrApiCall();
   }
 
-  flickrApiCall = (method, text) => {
+  flickrApiCall = () => {
     var url = "https://www.flickr.com/services/rest/?method=flickr.photos.";
-    url += method;
+    url += this.state.text === "" ? "getRecent" : "search";
     url += `&api_key=${process.env.REACT_APP_API_KEY}`;
     url += "&format=json&nojsoncallback=1&per_page=25&safe_search=3";
-    if (text !== undefined && text !== "") {
-      url += `&text=${text}`;
+    if (this.state.text !== undefined && this.state.text !== "") {
+      url += `&text=${this.state.text}`;
     }
 
     fetch(url)
@@ -49,8 +49,9 @@ class App extends Component {
       });
   };
 
-  search = (text) => {
-    this.flickrApiCall("search", text);
+  search = () => {
+    this.flickrApiCall();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   handleChange = (e) => {
@@ -60,7 +61,7 @@ class App extends Component {
 
   handleEnter = (e) => {
     if (e.keyCode === 13) {
-      this.search(this.state.text);
+      this.search();
     }
   };
 
