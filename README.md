@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Connect to Flickr
+you have to get an api key from Flickr and add a `.env` file to the root of the project and write the following:
+`REACT_APP_API_KEY=xxxxxxxx` replace the x's with you api key.
+
 ## Available Scripts
 
 In the project directory, you can run:
