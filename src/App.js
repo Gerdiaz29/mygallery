@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Image from "./components/ImageComponent";
-import Inputs from "./components/Inputs";
+import InputsSearch from "./components/InputsSearch";
 import "./App.css";
 
 class App extends Component {
@@ -9,6 +9,7 @@ class App extends Component {
     images: [],
     isLoaded: false,
     error: null,
+    text: "",
   };
 
   componentDidMount() {
@@ -52,17 +53,33 @@ class App extends Component {
     this.flickrApiCall("search", text);
   };
 
+  handleChange = (e) => {
+    const text = e.target.value;
+    this.setState({ text });
+  };
+
+  handleEnter = (e) => {
+    if (e.keyCode === 13) {
+      this.search(this.state.text);
+    }
+  };
+
   select = (image, event) => {
     this.setState({ SelectedImage: image });
   };
 
   render() {
-    const { images, error, isLoaded } = this.state;
+    const { images, error, isLoaded, text } = this.state;
     return (
       <div>
         <div className="nav-bar navbar fixed-top row justify-content-center">
           <h1 className="col-12">Search Images</h1>
-          <Inputs search={this.search}></Inputs>
+          <InputsSearch
+            search={this.search}
+            handleChange={this.handleChange}
+            handleEnter={this.handleEnter}
+            text={text}
+          />
         </div>
         <div className="images">
           {error ? (
