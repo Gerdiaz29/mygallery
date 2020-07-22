@@ -5,7 +5,7 @@ class InputsSearch extends Component {
     return (
       <div className="form-inline">
         <input
-          className="form-control mr-sm-2"
+          className="form-control mr-sm-2 text-center"
           type="text"
           value={this.props.text}
           onChange={this.props.handleChange}
