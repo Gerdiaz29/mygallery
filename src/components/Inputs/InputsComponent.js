@@ -7,13 +7,12 @@ class Inputs extends Component {
 
   handleChange = (e) => {
     const text = e.target.value;
-
     this.setState({ text });
   };
 
   render() {
     return (
-      <div>
+      <div className="col-12">
         <input
           type="text"
           value={this.state.text}

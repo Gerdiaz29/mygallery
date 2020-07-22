@@ -50,7 +50,6 @@ class App extends Component {
   };
 
   search = (text) => {
-    console.log(text);
     this.flickrApiCall("search", text);
   };
 
@@ -62,8 +61,8 @@ class App extends Component {
     const { images } = this.state;
     return (
       <div>
-        <div className="title">
-          <h1>Search Images</h1>
+        <div className="nav-bar navbar fixed-top row">
+          <h1 className="col-12">Search Images</h1>
           <Inputs search={this.search}></Inputs>
         </div>
         <div className="images">
