@@ -32,7 +32,9 @@ class App extends Component {
           throw new Error(result.message);
         }
         let imagesArray = result.photos.photo.map((image) => {
-          var sourceImage = `https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`;
+          var sourceImage = `https://farm${
+            image.farm === 0 ? 66 : image.farm
+          }.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`;
           return { ...image, src: sourceImage };
         });
         this.setState({
