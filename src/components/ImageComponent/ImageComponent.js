@@ -10,7 +10,7 @@ class Image extends React.Component {
         className={styles.card + " " + activeImage}
         onClick={this.props.actionClick}
       >
-        <img className={styles.image} src={image.src} alt="Imagen"></img>
+        <img className={styles.image} src={image.src} alt={image.title}></img>
       </div>
     );
   }
